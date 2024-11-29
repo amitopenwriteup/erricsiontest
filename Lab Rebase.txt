@@ -1,0 +1,62 @@
+Lab Rebase
+
+
+Scenario
+Main branch has commits:
+
+Commit A
+Commit B
+
+Bug branch diverged after Commit B and has:
+
+Commit X
+Commit Y
+
+Steps:
+
+1)Initialize Git Repository:
+
+mkdir git-rebase-lab
+cd git-rebase-lab
+git init
+
+
+2)Create the main branch:
+
+echo "File A" > fileA.txt
+git add fileA.txt
+git commit -m "Commit A"
+
+echo "File B" > fileB.txt
+git add fileB.txt
+git commit -m "Commit B"
+
+
+
+3)Create the bug branch:
+
+
+git checkout -b bug
+echo "Bug Fix X" > bugfixX.txt
+git add bugfixX.txt
+git commit -m "Commit X"
+echo "Bug Fix Y" > bugfixY.txt
+git add bugfixY.txt
+git commit -m "Commit Y"
+
+4)Return to the main branch and make more changes:
+
+git checkout master
+echo "New Feature" > newfeature.txt
+git add newfeature.txt
+git commit -m "Commit D"
+
+
+5)Perform Rebase Switch to bug branch:
+
+git checkout bug
+git rebase master
+
+6) Verify
+
+git log --oneline --graph
