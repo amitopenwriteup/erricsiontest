@@ -1,0 +1,49 @@
+Setup Instructions
+
+1. Initialize a new Git repository:
+
+mkdir git-cherrypick-lab
+cd git-cherrypick-lab
+git init
+
+2.Create the master branch:
+
+echo "A" > file.txt
+git add file.txt
+git commit -m "Commit A"
+
+echo "B" >> file.txt
+git commit -am "Commit B"
+
+echo "C" >> file.txt
+git commit -am "Commit C"
+
+echo "D" >> file.txt
+git commit -am "Commit D"
+
+3.Create the Feature branch:
+
+git checkout -b Feature
+
+echo "E" > feature.txt
+git add feature.txt
+git commit -m "Commit E"
+
+
+4. Note down the commitsha for f
+
+git log Feature --oneline
+
+5.Switch back to master:
+
+git checkout master
+
+6.Cherry-pick f onto master:
+
+git cherry-pick <commit-hash-of-f>
+
+git log Feature --oneline
+
+7.Verify
+
+git log --oneline --graph

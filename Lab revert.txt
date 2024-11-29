@@ -1,0 +1,41 @@
+1. Initialize a New Git Repository:
+
+mkdir git-revert-lab
+cd git-revert-lab
+git init
+
+2.Create Some Commits:
+
+
+echo "A" > file.txt
+git add file.txt
+git commit -m "Commit A"
+
+# Create Commit B
+echo "B" >> file.txt
+git commit -am "Commit B"
+
+# Create Commit C
+echo "C" >> file.txt
+git commit -am "Commit C"
+
+
+git log --oneline
+
+3.Revert a Commit:
+
+git revert <sha>
+
+4.After this, Git will prompt you with a message like this (by default), press ctrl+x:
+
+Revert "Commit B"
+
+	
+5. Verify
+git log --oneline
+
+6) Reapply the revert also possible
+ git log --oneline
+
+ git revert <sha of revert commit for reapply>
+
